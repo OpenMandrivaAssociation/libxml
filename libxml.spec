@@ -4,7 +4,7 @@
 Summary:	The libXML library
 Name:		libxml
 Version:	1.8.17
-Release:	%mkrel 10
+Release:	%mkrel 11
 License:	LGPL
 Group:		System/Libraries
 URL:		http://www.xmlsoft.org/
