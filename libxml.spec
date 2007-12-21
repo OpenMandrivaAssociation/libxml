@@ -14,6 +14,7 @@ Patch0:		libxml-1.8.17-includes.patch
 # (fc) 1.8.17-3mdk remove -L/usr/lib from xml-config --libs
 Patch1:		libxml-1.8.17-libdir.patch
 BuildRequires:	zlib-devel autoconf2.5 automake1.4
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This library allows you to manipulate XML files.
