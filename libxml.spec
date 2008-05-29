@@ -4,7 +4,7 @@
 Summary:	The libXML library
 Name:		libxml
 Version:	1.8.17
-Release:	%mkrel 12
+Release:	%mkrel 13
 License:	LGPL
 Group:		System/Libraries
 URL:		http://www.xmlsoft.org/
@@ -13,6 +13,7 @@ Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz
 Patch0:		libxml-1.8.17-includes.patch
 # (fc) 1.8.17-3mdk remove -L/usr/lib from xml-config --libs
 Patch1:		libxml-1.8.17-libdir.patch
+Patch2:		libxml-1.8.17-open.patch
 BuildRequires:	zlib-devel autoconf2.5 automake1.4
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -48,6 +49,7 @@ you can use to develop libxml applications.
 %setup -q
 %patch0 -p1 -b .includes
 %patch1 -p1 -b .libdir
+%patch2 -p1
 
 # remove conflicting ltconfig and ltmain.sh
 rm -f ltmain.sh ltconfig
