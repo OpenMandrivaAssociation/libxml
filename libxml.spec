@@ -72,9 +72,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %makeinstall_std
 
+%if %mdkversion < 200900
 %post -p /sbin/ldconfig -n %{lib_name}
+%endif
 
+%if %mdkversion < 200900
 %postun -p /sbin/ldconfig -n %{lib_name}
+%endif
 
 %clean
 rm -rf $RPM_BUILD_ROOT
