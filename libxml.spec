@@ -14,7 +14,8 @@ Patch0:		libxml-1.8.17-includes.patch
 # (fc) 1.8.17-3mdk remove -L/usr/lib from xml-config --libs
 Patch1:		libxml-1.8.17-libdir.patch
 Patch2:		libxml-1.8.17-open.patch
-BuildRequires:	zlib-devel autoconf2.5 automake1.4
+Patch3:		libxml-1.8.17-fix-str-fmt.patch
+BuildRequires:	zlib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
@@ -50,17 +51,11 @@ you can use to develop libxml applications.
 %patch0 -p1 -b .includes
 %patch1 -p1 -b .libdir
 %patch2 -p1
-
-# remove conflicting ltconfig and ltmain.sh
-rm -f ltmain.sh ltconfig
-libtoolize --force
-aclocal-1.4
-automake-1.4
-#also needed by patch1
-FORCE_AUTOCONF_2_5=1 autoconf
+%patch3 -p0 -b .str
 
 %build
-%configure
+autoreconf -fi
+%configure2_5x
 %make
 
 %check
@@ -97,5 +92,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
 %{_datadir}/gnome-xml
-
-
