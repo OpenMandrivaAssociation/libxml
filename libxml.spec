@@ -4,7 +4,7 @@
 Summary:	The libXML library
 Name:		libxml
 Version:	1.8.17
-Release:	%mkrel 14
+Release:	%mkrel 15
 License:	LGPL
 Group:		System/Libraries
 URL:		http://www.xmlsoft.org/
@@ -15,6 +15,7 @@ Patch0:		libxml-1.8.17-includes.patch
 Patch1:		libxml-1.8.17-libdir.patch
 Patch2:		libxml-1.8.17-open.patch
 Patch3:		libxml-1.8.17-fix-str-fmt.patch
+Patch4:		libxml-1.8.17-CVE-2009-2414,2416.diff
 BuildRequires:	zlib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -52,6 +53,7 @@ you can use to develop libxml applications.
 %patch1 -p1 -b .libdir
 %patch2 -p1
 %patch3 -p0 -b .str
+%patch4 -p0 -b .CVE-2009-2414,2416
 
 %build
 autoreconf -fi
