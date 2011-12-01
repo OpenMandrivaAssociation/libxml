@@ -65,7 +65,7 @@ autoreconf -fi
 make check
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %makeinstall_std
 
@@ -78,7 +78,7 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files -n %{lib_name}
 %defattr(-, root, root)
