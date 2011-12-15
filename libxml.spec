@@ -4,7 +4,7 @@
 Summary:	The libXML library
 Name:		libxml
 Version:	1.8.17
-Release:	%mkrel 18
+Release:	19
 License:	LGPL
 Group:		System/Libraries
 URL:		http://www.xmlsoft.org/
@@ -17,7 +17,7 @@ Patch2:		libxml-1.8.17-open.patch
 Patch3:		libxml-1.8.17-fix-str-fmt.patch
 Patch4:		libxml-1.8.17-CVE-2009-2414,2416.diff
 BuildRequires:	zlib-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	autoconf automake libtool
 
 %description
 This library allows you to manipulate XML files.
@@ -37,7 +37,7 @@ Group:		Development/C
 # (gb) As of 1.8.17 version, I can't see any changes that would
 # require a specific dependency on release, thus permitting
 # rpmlintfixes
-Requires:	%{lib_name} = %{version}
+Requires:	%{lib_name} >= %{version}-%{release}
 Requires:	zlib-devel
 Obsoletes:	%{name}-devel
 Provides:	%{name}-devel = %{version}-%{release}
@@ -69,27 +69,16 @@ rm -rf %{buildroot}
 
 %makeinstall_std
 
-%if %mdkversion < 200900
-%post -p /sbin/ldconfig -n %{lib_name}
-%endif
-
-%if %mdkversion < 200900
-%postun -p /sbin/ldconfig -n %{lib_name}
-%endif
-
-%clean
-rm -rf %{buildroot}
+# cleanups
+rm -f %{buildroot}%{_libdir}/*.*a
 
 %files -n %{lib_name}
-%defattr(-, root, root)
 %doc AUTHORS ChangeLog NEWS README COPYING COPYING.LIB TODO
 %{_libdir}/lib*.so.*
 
 %files -n %{lib_name}-devel
-%defattr(-, root, root)
 %{_bindir}/xml-config
 %{_libdir}/lib*.so
-%{_libdir}/*a
 %{_libdir}/*.sh
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
