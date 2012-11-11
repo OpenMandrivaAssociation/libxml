@@ -1,0 +1,10 @@
+--- libxml-1.8.17/configure.in.includes	2002-01-23 17:48:23.000000000 -0500
++++ libxml-1.8.17/configure.in	2002-07-10 14:47:00.000000000 -0400
+@@ -68,6 +68,7 @@ AC_CHECK_HEADERS(fcntl.h unistd.h ctype.
+ AC_CHECK_HEADERS(stdarg.h sys/stat.h sys/types.h time.h)
+ AC_CHECK_HEADERS(ieeefp.h nan.h math.h fp_class.h float.h)
+ AC_CHECK_HEADERS(stdlib.h sys/socket.h netinet/in.h arpa/inet.h)
++AC_CHECK_HEADERS(string.h)
+ AC_CHECK_HEADERS(netdb.h sys/time.h sys/select.h)
+ 
+ dnl Specific dir for HTML output ?
