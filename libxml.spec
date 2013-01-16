@@ -17,8 +17,8 @@ Patch2:		libxml-1.8.17-open.patch
 Patch3:		libxml-1.8.17-fix-str-fmt.patch
 Patch4:		libxml-1.8.17-CVE-2009-2414,2416.diff
 Patch5:		libxml-1.8.17-CVE-2011-1944.diff
+Patch6:		libxml-automake-1.13.patch
 BuildRequires:	zlib-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 This library allows you to manipulate XML files.
@@ -56,6 +56,7 @@ you can use to develop libxml applications.
 %patch3 -p0 -b .str
 %patch4 -p0 -b .CVE-2009-2414,2416
 %patch5 -p0 -b .CVE-2011-1944
+%patch6 -p1 -b .am113~
 
 %build
 autoreconf -fi
