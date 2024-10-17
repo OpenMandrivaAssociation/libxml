@@ -10,7 +10,7 @@ Version:	1.8.17
 Release:	22
 License:	LGPLv2
 Group:		System/Libraries
-Url:		http://www.xmlsoft.org/
+Url:		https://www.xmlsoft.org/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/libxml/%{url_ver}/%{name}-%{version}.tar.bz2
 # (gb) 1.8.17-2mdk add missing include
 Patch0:		libxml-1.8.17-includes.patch
