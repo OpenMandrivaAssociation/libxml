@@ -21,6 +21,11 @@ Patch3:		libxml-1.8.17-fix-str-fmt.patch
 Patch4:		libxml-1.8.17-CVE-2009-2414,2416.diff
 Patch5:		libxml-1.8.17-CVE-2011-1944.diff
 Patch6:		libxml-automake-1.13.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(zlib)
 
 %description
